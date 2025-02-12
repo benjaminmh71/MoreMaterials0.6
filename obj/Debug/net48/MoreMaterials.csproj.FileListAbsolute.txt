@@ -1,0 +1,12 @@
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.csproj.AssemblyReference.cache
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\PluginInfo.cs
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.AssemblyInfoInputs.cache
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.AssemblyInfo.cs
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.csproj.CoreCompileInputs.cache
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Debug\net48\MoreMaterials.dll
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Debug\net48\MoreMaterials.pdb
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Debug\net48\BibitesAssembly.dll
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.csproj.CopyComplete
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.dll
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.pdb

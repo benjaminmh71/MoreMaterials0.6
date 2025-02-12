@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\MoreMaterials.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\MoreMaterials.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\MoreMaterials.csproj",
+        "projectName": "MoreMaterials",
+        "projectPath": "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\MoreMaterials.csproj",
+        "packagesPath": "C:\\Users\\catma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\catma\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\catma\\Downloads\\The Bibites 0.6.0.1 - Windows 64x\\MoreMaterials\\NuGet.Config",
+          "C:\\Users\\catma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\catma\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "BepInEx.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.*, )"
+            },
+            "BepInEx.PluginInfoProps": {
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "UnityEngine.Modules": {
+              "include": "Compile",
+              "target": "Package",
+              "version": "[2022.3.34, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
