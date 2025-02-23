@@ -27,4 +27,16 @@
 			<HintPath>lib\BibitesAssembly.dll</HintPath>
 		</Reference>
 	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>lib\UnityEngine.UI.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>lib\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>

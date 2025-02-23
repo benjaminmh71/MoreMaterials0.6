@@ -22,8 +22,6 @@ namespace MoreMaterials
         [HarmonyPrefix]
         private static void awakePrefix(SimulationManager __instance)
         {
-            NEATBrain.NInputs = 41;
-            NEATBrain.nodeMaxInov = (long)(41 + NEATBrain.NOutputs + 1);
             BrainUpdater.VersionChanges.Add(
                 new VersionBrainChange
                 {
@@ -31,7 +29,7 @@ namespace MoreMaterials
                     removedInputs = new NodeChanges[0],
                     addedInputs = new NodeChanges[]
                     {
-                        new NodeChanges(41, 9)
+                        new NodeChanges(32, 9),
                     },
                     addedOutputs = new NodeChanges[0],
                     removedOutputs = new NodeChanges[0]

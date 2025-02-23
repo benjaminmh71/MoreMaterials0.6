@@ -10,3 +10,5 @@ C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Deb
 C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.csproj.CopyComplete
 C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.dll
 C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\obj\Debug\net48\MoreMaterials.pdb
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Debug\net48\UnityEngine.UI.dll
+C:\Users\catma\Downloads\The Bibites 0.6.0.1 - Windows 64x\MoreMaterials\bin\Debug\net48\Newtonsoft.Json.dll
