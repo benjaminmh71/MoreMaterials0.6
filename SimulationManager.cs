@@ -25,7 +25,7 @@ namespace MoreMaterials
             BrainUpdater.VersionChanges.Add(
                 new VersionBrainChange
                 {
-                    version = new Utility.Version(100, 1, 0, 0),
+                    version = new Utility.Version(100, 6, 0, 1),
                     removedInputs = new NodeChanges[0],
                     addedInputs = new NodeChanges[]
                     {

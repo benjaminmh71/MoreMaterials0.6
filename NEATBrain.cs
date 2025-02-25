@@ -31,6 +31,34 @@ namespace MoreMaterials
             }
         }
 
+        [HarmonyPatch("StartUsedSystems")]
+        [HarmonyPrefix]
+        private static bool startSeeingPrefix(NEATBrain __instance)
+        {
+            if (__instance.phero != null && __instance.Nodes[23].NOut + __instance.Nodes[24].NOut +
+                __instance.Nodes[25].NOut + __instance.Nodes[26].NOut + __instance.Nodes[27].NOut +
+                __instance.Nodes[28].NOut + __instance.Nodes[29].NOut + __instance.Nodes[30].NOut + __instance.Nodes[31].NOut > 0)
+            {
+                __instance.phero.StartPherosensing();
+            }
+            if (__instance.fow == null)
+            {
+                return false;
+            }
+            int num = 0;
+            num += (((NEATBrain.herdingEnabled ? __instance.Nodes[NEATBrain.NInputs + 2].NIn : 0) +
+                __instance.Nodes[10].NOut + __instance.Nodes[9].NOut + __instance.Nodes[8].NOut + __instance.Nodes[17].NOut +
+                __instance.Nodes[18].NOut + __instance.Nodes[19].NOut > 0) ? 1 : 0);
+            num += ((__instance.Nodes[13].NOut + __instance.Nodes[12].NOut + __instance.Nodes[11].NOut
+                + __instance.Nodes[32].NOut + __instance.Nodes[33].NOut + __instance.Nodes[34].NOut
+                + __instance.Nodes[35].NOut + __instance.Nodes[36].NOut + __instance.Nodes[37].NOut
+                + __instance.Nodes[38].NOut + __instance.Nodes[39].NOut + __instance.Nodes[40].NOut > 0) ? 2 : 0);
+            num += ((__instance.Nodes[16].NOut + __instance.Nodes[15].NOut + __instance.Nodes[14].NOut > 0) ? 4 : 0);
+            __instance.fow.StartSeeing(num);
+
+            return false;
+        }
+
         public static int nInputs = 41;
 
         public static String[] inputNames =

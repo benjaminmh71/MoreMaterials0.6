@@ -26,42 +26,37 @@ namespace MoreMaterials
 				MatterMaterialManager.SettingsOfMaterial(MatterMaterialManager.FindMaterial("Fruit"));
 			MatterMaterialSettings fungusSettings =
 				MatterMaterialManager.SettingsOfMaterial(MatterMaterialManager.FindMaterial("Fungus"));
-			MethodInfo updateDecay = typeof(SettingsUpdater).GetMethod("UpdateDecay", BindingFlags.NonPublic | BindingFlags.Instance);
-			MethodInfo updateDecayParameters =
-				typeof(SettingsUpdater).GetMethod("UpdateDecayParameters", BindingFlags.NonPublic | BindingFlags.Instance);
-			MethodInfo updatePhysicalProperties =
-				typeof(SettingsUpdater).GetMethod("UpdatePhysicalProperties", BindingFlags.NonPublic | BindingFlags.Instance);
 
 			void updateRootDecay()
 			{
-				updateDecayParameters.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Root") });
+				__instance.UpdateDecayParameters(MatterMaterialManager.FindMaterial("Root"));
 			}
 			void updateRootPhysicalProperties()
 			{
-				updatePhysicalProperties.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Root") });
+				__instance.UpdatePelletPhysicalProperties(MatterMaterialManager.FindMaterial("Root"));
 			}
 			void updateFruitDecay()
 			{
-				updateDecayParameters.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fruit") });
-			}
+                __instance.UpdateDecayParameters(MatterMaterialManager.FindMaterial("Fruit"));
+            }
 			void updateFruitPhysicalProperties()
 			{
-				updatePhysicalProperties.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fruit") });
-			}
+                __instance.UpdatePelletPhysicalProperties(MatterMaterialManager.FindMaterial("Fruit"));
+            }
 			void updateFungusDecay()
 			{
-				updateDecayParameters.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fungus") });
-			}
+                __instance.UpdateDecayParameters(MatterMaterialManager.FindMaterial("Fungus"));
+            }
 			void updateFungusPhysicalProperties()
 			{
-				updatePhysicalProperties.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fungus") });
-			}
+                __instance.UpdatePelletPhysicalProperties(MatterMaterialManager.FindMaterial("Fungus"));
+            }
 
 			rootSettings.decay.Subscribe(new UnityAction<bool>
 				(
 				val =>
 				{
-					updateDecay.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Root"), val });
+					__instance.UpdateDecay(MatterMaterialManager.FindMaterial("Root"), val);
 				}));
 			rootSettings.decayRate.Subscribe(new UnityAction(updateRootDecay));
 			rootSettings.freshTime.Subscribe(new UnityAction(updateRootDecay));
@@ -70,8 +65,8 @@ namespace MoreMaterials
 				(
 				val =>
 				{
-					updateDecay.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fruit"), val });
-				}));
+                    __instance.UpdateDecay(MatterMaterialManager.FindMaterial("Fruit"), val);
+                }));
 			fruitSettings.decayRate.Subscribe(new UnityAction(updateFruitDecay));
 			fruitSettings.freshTime.Subscribe(new UnityAction(updateFruitDecay));
 
@@ -79,8 +74,8 @@ namespace MoreMaterials
 				(
 				val =>
 				{
-					updateDecay.Invoke(__instance, new object[] { MatterMaterialManager.FindMaterial("Fungus"), val });
-				}));
+                    __instance.UpdateDecay(MatterMaterialManager.FindMaterial("Fungus"), val);
+                }));
 			fungusSettings.decayRate.Subscribe(new UnityAction(updateFungusDecay));
 			fungusSettings.freshTime.Subscribe(new UnityAction(updateFungusDecay));
 

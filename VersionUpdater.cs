@@ -28,25 +28,47 @@ namespace MoreMaterials
         [HarmonyPostfix]
         private static void Postfix(BibiteTemplate __instance, ref JObject __result)
         {
-            Plugin.Log.LogInfo("Running");
             __result["version"] = (new Utility.Version(100, 6, 0, 1)).ToString();
         }
     }
 
-    [HarmonyPatch(typeof(SaveSystem))]
+    /*[HarmonyPatch(typeof(SaveSystem))]
     internal static class SaveVersionPatch
     {
-        [HarmonyPatch("SaveBibite")]
+        [HarmonyPatch("CreateSave")]
+        [HarmonyPrefix]
+        private static void Prefix(BibiteTemplate __instance, ref JObject __result)
+        {
+            __result["version"] = (new Utility.Version(100, 6, 0, 1)).ToString();
+        }
+    }*/
+
+        [HarmonyPatch(typeof(SaveSystem))]
+    internal static class SaveVersionTranspiler
+    {
+        static IEnumerable<MethodBase> TargetMethods()
+        {
+            var result = new List<MethodBase>();
+            result.Add(AccessTools.Method(typeof(SaveSystem), "SaveBibite"));
+            result.Add(AccessTools.Method(typeof(SaveSystem), "SaveEgg"));
+            var startGameType = Assembly.GetAssembly(typeof(SaveSystem)).GetTypes().First(x => x.Name == "<CreateSave>d__21");
+            var moveNextMethod = startGameType.GetMethod("MoveNext", AccessTools.all);
+            result.Add(moveNextMethod);
+
+            return result;
+        }
+
         [HarmonyTranspiler]
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            String version = (new Utility.Version(100, 6, 0, 1)).ToString();
             var codes = new List<CodeInstruction>(instructions);
             for (var i = 0; i < codes.Count; i++)
             {
                 if (codes[i].ToString() == "call static string UnityEngine.Application::get_version()")
                 {
                     codes[i].opcode = System.Reflection.Emit.OpCodes.Ldstr;
-                    codes[i].operand = "100.6.0.1";
+                    codes[i].operand = version;
                 }
             }
 

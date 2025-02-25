@@ -24,7 +24,7 @@ namespace MoreMaterials
         [HarmonyPrefix]
         private static bool getIconPrefix(BrainIconHolder __instance, int i, ref Sprite __result)
         {
-            if (i < NEATBrainPatch.nInputs && i > NEATBrainPatch.nInputs-9)
+            if (i < NEATBrainPatch.nInputs && i >= NEATBrainPatch.nInputs-9)
             {
                 byte[] imageBytes = File.ReadAllBytes(UnityEngine.Application.dataPath +
                     "/Mods/" + NEATBrainPatch.inputNames[i - NEATBrainPatch.nInputs + 9] + ".png");
