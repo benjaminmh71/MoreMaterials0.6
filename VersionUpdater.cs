@@ -32,17 +32,6 @@ namespace MoreMaterials
         }
     }
 
-    /*[HarmonyPatch(typeof(SaveSystem))]
-    internal static class SaveVersionPatch
-    {
-        [HarmonyPatch("CreateSave")]
-        [HarmonyPrefix]
-        private static void Prefix(BibiteTemplate __instance, ref JObject __result)
-        {
-            __result["version"] = (new Utility.Version(100, 6, 0, 1)).ToString();
-        }
-    }*/
-
         [HarmonyPatch(typeof(SaveSystem))]
     internal static class SaveVersionTranspiler
     {
