@@ -27,6 +27,7 @@ namespace MoreMaterials
                 rootEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Root");
                 __result = UnityEngine.Object.Instantiate<GameObject>
                     (rootEntry, pos ?? Vector3.zero, Quaternion.identity, (holder != null) ? holder : __instance.freePelletHolder);
+                rootEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Plant");
                 Object.Destroy(rootEntry);
                 return false;
             }
@@ -36,6 +37,7 @@ namespace MoreMaterials
                 fruitEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Fruit");
                 __result = UnityEngine.Object.Instantiate<GameObject>
                     (fruitEntry, pos ?? Vector3.zero, Quaternion.identity, (holder != null) ? holder : __instance.freePelletHolder);
+                fruitEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Plant");
                 Object.Destroy(fruitEntry);
                 return false;
             }
@@ -45,6 +47,7 @@ namespace MoreMaterials
                 fungusEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Fungus");
                 __result = UnityEngine.Object.Instantiate<GameObject>
                     (fungusEntry, pos ?? Vector3.zero, Quaternion.identity, (holder != null) ? holder : __instance.freePelletHolder);
+                fungusEntry.GetComponent<MatterPellet>().material = MatterMaterialManager.FindMaterial("Plant");
                 Object.Destroy(fungusEntry);
                 return false;
             }

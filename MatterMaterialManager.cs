@@ -72,7 +72,12 @@ namespace MoreMaterials
             MatterMaterialManager.MaterialSettings.Add(new MatterMaterialSettings(fruit));
             MatterMaterialManager.PhysicalMaterials.Add(fungus);
             MatterMaterialManager.MaterialSettings.Add(new MatterMaterialSettings(fungus));
+        }
 
+        [HarmonyPatch("Awake")]
+        [HarmonyPostfix]
+        private static void awakePostfix(MatterMaterialManager __instance)
+        {
             // Inject pellet count variables into DefaultMaterials:
             MatterMaterial rootCounter = ScriptableObject.CreateInstance("MatterMaterial") as MatterMaterial;
             MatterMaterial fruitCounter = ScriptableObject.CreateInstance("MatterMaterial") as MatterMaterial;

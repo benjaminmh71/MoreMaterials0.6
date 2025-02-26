@@ -144,12 +144,12 @@ namespace MoreMaterials
             int newEggCount, float pelletSpawnerE, float pelletE, float bibiteE, float eggE, float plantE, float meatE, 
             Dictionary<string, TagInfo> tags)
         {
-            float rootCount = 1f;
-            float fruitCount = 2f;
-            float fungusCount = 3f;
-            float rootEnergy = 4f;
-            float fruitEnergy = 5f;
-            float fungusEnergy = 6f;
+            float rootCount = MatterMaterialManager.FindDefaultMaterial("rootCounter").MassDensity;
+            float fruitCount = MatterMaterialManager.FindDefaultMaterial("fruitCounter").MassDensity;
+            float fungusCount = MatterMaterialManager.FindDefaultMaterial("fungusCounter").MassDensity;
+            float rootEnergy = MatterMaterialManager.FindDefaultMaterial("rootCounter").EnergyDensity;
+            float fruitEnergy = MatterMaterialManager.FindDefaultMaterial("fruitCounter").EnergyDensity;
+            float fungusEnergy = MatterMaterialManager.FindDefaultMaterial("fungusCounter").EnergyDensity;
 
             __instance.totalCount.UpdateValue((float)(newBibiteCount + newPlantCount + newEggCount + newMeatCount + 
                 rootCount + fruitCount + fungusCount));
