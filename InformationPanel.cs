@@ -97,17 +97,17 @@ namespace MoreMaterials
                 new WedgeInfo
                 {
                     label = "Roots",
-                    color = new Color(0.8431373f, 0.1490196f, 0.2392157f)
+                    color = new Color(1f, 0.7098f, 0.4588f)
                 },
                 new WedgeInfo
                 {
                     label = "Fruits",
-                    color = new Color(0.8431373f, 0.1490196f, 0.2392157f)
+                    color = new Color(0.2863f, 0.2745f, 0.7765f)
                 },
                 new WedgeInfo
                 {
                     label = "Fungus",
-                    color = new Color(0.8431373f, 0.1490196f, 0.2392157f)
+                    color = new Color(0.6667f, 0.5725f, 0.5255f)
                 }
             };
 

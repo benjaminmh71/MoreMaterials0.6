@@ -58,23 +58,23 @@ namespace MoreMaterials
 
         [HarmonyPatch("ChangeCount")]
         [HarmonyPrefix]
-        private static bool changeCountPrefix(PlantCounter __instance)
+        private static bool changeCountPrefix(PlantCounter __instance, float biomassDifference)
         {
             if (__instance.pellet.material.Name == "Root")
             {
-                MatterMaterialManager.FindDefaultMaterial("rootCounter").EnergyDensity += 1f;
+                MatterMaterialManager.FindDefaultMaterial("rootCounter").EnergyDensity += biomassDifference;
                 return false;
             }
 
             if (__instance.pellet.material.Name == "Fruit")
             {
-                MatterMaterialManager.FindDefaultMaterial("fruitCounter").EnergyDensity += 1f;
+                MatterMaterialManager.FindDefaultMaterial("fruitCounter").EnergyDensity += biomassDifference;
                 return false;
             }
 
             if (__instance.pellet.material.Name == "Fungus")
             {
-                MatterMaterialManager.FindDefaultMaterial("fungusCounter").EnergyDensity += 1f;
+                MatterMaterialManager.FindDefaultMaterial("fungusCounter").EnergyDensity += biomassDifference;
                 return false;
             }
 
