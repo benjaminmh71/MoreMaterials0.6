@@ -35,7 +35,6 @@ namespace MoreMaterials
             if (__instance.pellet.material.Name == "Root")
             {
                 MatterMaterialManager.FindDefaultMaterial("rootCounter").MassDensity += 1f;
-                Plugin.Log.LogInfo(MatterMaterialManager.FindDefaultMaterial("rootCounter").MassDensity);
                 __instance.pellet.AfterEnergyChange.AddListener(new UnityAction<float>(__instance.ChangeCount));
                 return false;
             }
