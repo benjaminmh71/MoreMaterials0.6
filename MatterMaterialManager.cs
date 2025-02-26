@@ -6,7 +6,8 @@ using SettingScripts;
 using MoreMaterials;
 using UnityEngine;
 using System.IO;
-
+using Newtonsoft.Json.Linq;
+using ScriptHelpers;
 
 namespace MoreMaterials
 {
@@ -71,6 +72,58 @@ namespace MoreMaterials
             MatterMaterialManager.MaterialSettings.Add(new MatterMaterialSettings(fruit));
             MatterMaterialManager.PhysicalMaterials.Add(fungus);
             MatterMaterialManager.MaterialSettings.Add(new MatterMaterialSettings(fungus));
+
+            // Inject pellet count variables into DefaultMaterials:
+            MatterMaterial rootCounter = ScriptableObject.CreateInstance("MatterMaterial") as MatterMaterial;
+            MatterMaterial fruitCounter = ScriptableObject.CreateInstance("MatterMaterial") as MatterMaterial;
+            MatterMaterial fungusCounter = ScriptableObject.CreateInstance("MatterMaterial") as MatterMaterial;
+            rootCounter.Name = "rootCounter";
+            fruitCounter.Name = "fruitCounter";
+            fungusCounter.Name = "fungusCounter";
+            rootCounter.MassDensity = 0f;
+            fruitCounter.MassDensity = 0f;
+            fungusCounter.MassDensity = 0f;
+            rootCounter.EnergyDensity = 0f;
+            fruitCounter.EnergyDensity = 0f;
+            fungusCounter.EnergyDensity = 0f;
+            MatterMaterialManager.DefaultMaterials.Add(rootCounter);
+            MatterMaterialManager.DefaultMaterials.Add(fruitCounter);
+            MatterMaterialManager.DefaultMaterials.Add(fungusCounter);
+        }
+
+        [HarmonyPatch("ResetMaterialParameters")]
+        [HarmonyPrefix]
+        private static bool resetPrefix(MatterMaterial mat)
+        {
+            if (mat.Name == "rootCounter" || mat.Name == "fruitCounter" || mat.Name == "fungusCounter") return false;
+
+            return true;
+        }
+
+        [HarmonyPatch("SaveState")]
+        [HarmonyPostfix]
+        private static void savePostfix(MatterMaterialManager __instance, ref JObject __result)
+        {
+            foreach (MatterMaterial mat in MatterMaterialManager.DefaultMaterials)
+            {
+                if (mat.Name == "rootCounter" || mat.Name == "fruitCounter" || mat.Name == "fungusCounter")
+                    __result[mat.Name] = SerializationHelper.SerializeObject(mat);
+            }
+        }
+
+        [HarmonyPatch("LoadState")]
+        [HarmonyPostfix]
+        private static void loadPostfix(MatterMaterialManager __instance, JObject state)
+        {
+            for (int i = 0; i < MatterMaterialManager.DefaultMaterials.Count; i++)
+            {
+                MatterMaterial mat = MatterMaterialManager.DefaultMaterials[i];
+                if (mat.Name == "rootCounter" || mat.Name == "fruitCounter" || mat.Name == "fungusCounter")
+                {
+                    SerializationHelper.DeserializeObject(mat, state[mat.Name]);
+                    MatterMaterialManager.DefaultMaterials[i] = mat;
+                }
+            }
         }
     }
 }
