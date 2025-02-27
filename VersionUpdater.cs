@@ -43,6 +43,7 @@ namespace MoreMaterials
             var startGameType = Assembly.GetAssembly(typeof(SaveSystem)).GetTypes().First(x => x.Name == "<CreateSave>d__21");
             var moveNextMethod = startGameType.GetMethod("MoveNext", AccessTools.all);
             result.Add(moveNextMethod);
+            result.Add(AccessTools.PropertyGetter(typeof(Utility.Version), "Present"));
 
             return result;
         }
@@ -56,6 +57,7 @@ namespace MoreMaterials
             {
                 if (codes[i].ToString() == "call static string UnityEngine.Application::get_version()")
                 {
+                    Plugin.Log.LogInfo("Found");
                     codes[i].opcode = System.Reflection.Emit.OpCodes.Ldstr;
                     codes[i].operand = version;
                 }

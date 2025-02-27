@@ -22,6 +22,11 @@ namespace MoreMaterials
         [HarmonyPrefix]
         private static void awakePrefix(SimulationManager __instance)
         {
+            foreach (VersionBrainChange v in BrainUpdater.VersionChanges)
+            {
+                if (v.version == new Utility.Version(100, 6, 0, 1)) return;
+            }
+
             BrainUpdater.VersionChanges.Add(
                 new VersionBrainChange
                 {
